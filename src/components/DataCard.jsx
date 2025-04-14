@@ -1,19 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function DataCard({ item }) {
   return (
-    <div className="table-row">
+    <Link to={`/brewery/${item.id}`} className="table-row" style={{ textDecoration: 'none', color: 'inherit' }}>
       <div className="table-cell">{item.name}</div>
       <div className="table-cell">{item.brewery_type}</div>
       <div className="table-cell">{item.city}, {item.state}</div>
       <div className="table-cell">{item.phone || 'N/A'}</div>
       <div className="table-cell">
-        {item.website_url 
-          ? <a href={item.website_url} target="_blank" rel="noopener noreferrer">Visit Site</a>
-          : 'N/A'
-        }
+        <span style={{ color: '#61dafb' }}>View Details</span>
       </div>
-    </div>
+    </Link>
   );
 }
 
